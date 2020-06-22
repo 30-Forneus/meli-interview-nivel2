@@ -15,9 +15,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import com.sun.net.httpserver.HttpServer;
 
-
-
-
 @SpringBootApplication
 public class Nivel2Application implements CommandLineRunner {
 
@@ -27,7 +24,7 @@ public class Nivel2Application implements CommandLineRunner {
 
 	@Override
 	public void run(String... args) throws Exception {
-		System.out.println("[MAIN] Nivel2Application already started. Press Ctrl + C to shutdown.");
+		//System.out.println("[MAIN] Nivel2Application already started. Press Ctrl + C to shutdown.");
         HttpServer server = HttpServer.create(new InetSocketAddress(APP_PORT), DEFULT_BACKLOG);
         server.createContext("/api/hello", (exchange -> {
 
