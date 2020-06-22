@@ -13,6 +13,7 @@ public interface Constant {
 	int APP_PORT = 8000;
 	int DEFULT_BACKLOG = 0;
 
+	//Encoding
 	String UTF_8 = "UTF-8";
 
 }
