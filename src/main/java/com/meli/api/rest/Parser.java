@@ -15,11 +15,11 @@ import java.util.regex.Pattern;
 
 import lombok.SneakyThrows;
 
-enum Parser {
+public enum Parser {
 	
 	INSTANCE;
 		
-    Map<String, List<String>> splitQuery(String query) {
+    public Map<String, List<String>> splitQuery(String query) {
         if (query == null || "".equals(query)) {
             return Collections.emptyMap();
         }
