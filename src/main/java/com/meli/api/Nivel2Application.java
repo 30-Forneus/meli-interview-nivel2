@@ -15,6 +15,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import com.meli.api.rest.Constant;
 import com.meli.api.rest.Parser;
 import com.sun.net.httpserver.BasicAuthenticator;
 import com.sun.net.httpserver.HttpContext;
@@ -31,7 +32,7 @@ public class Nivel2Application implements CommandLineRunner {
 	public void run(String... args) throws Exception {
 		//System.out.println("[MAIN] Nivel2Application already started. Press Ctrl + C to shutdown.");
         HttpServer server = HttpServer.create(new InetSocketAddress(APP_PORT), DEFULT_BACKLOG);
-        HttpContext context = server.createContext("/api/hello", (exchange -> {
+        HttpContext context = server.createContext("/mutant/", (exchange -> {
 
 			if (GET.equals(exchange.getRequestMethod())) {
 				Map<String, List<String>> params = Parser.INSTANCE.splitQuery(exchange.getRequestURI().getRawQuery());
@@ -42,7 +43,11 @@ public class Nivel2Application implements CommandLineRunner {
 				OutputStream output = exchange.getResponseBody();
 				output.write(respText.getBytes());
 				output.flush();
-			} else {
+			}  
+			else if (Constant.POST.equals(exchange.getRequestMethod())) {
+				
+			}  
+			else {
 				exchange.sendResponseHeaders(HTTP_NOT_ALLOWED, -1);// 405 Method Not Allowed
 			}
 			exchange.close();

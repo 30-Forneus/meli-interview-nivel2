@@ -4,9 +4,11 @@ public interface Constant {
 
 	// REST verbs
 	String GET = "GET";
+	String POST = "POST";
 
 	// REST responses
 	int HTTP_200 = 200;
+	int HTTP_FORBIDDEN = 403;
 	int HTTP_NOT_ALLOWED = 405;
 	
 	//Config
@@ -15,5 +17,6 @@ public interface Constant {
 
 	//Encoding
 	String UTF_8 = "UTF-8";
+
 
 }
